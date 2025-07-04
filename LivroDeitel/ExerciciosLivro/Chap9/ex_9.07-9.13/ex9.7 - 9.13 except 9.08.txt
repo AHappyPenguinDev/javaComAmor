@@ -1,0 +1,32 @@
+// 9.7 Protected vs Private
+It's probably not bad to use protected access, but you need to be careful because you don't want to have logic errors
+
+//9.9 What does each code snippet do?
+A) super.earnings()
+R: This calls the superclass's earnings method
+
+B) @Override
+R: This makes a contract with the compiler telling it that an override needs to occur here. This is good because it prevents
+  Logic errors, since if there is and overload, or if there is no override, it lets you know with an error, instead of overloading the method or creating a new method
+
+C) super(firstArgument, secondArgument) 
+R: This calls the superclass's constructor 
+
+//9.10 Write a Line of Code, or Two
+A) Specify that class Orange inherits from class Fruit
+R: class Orange extends Fruit
+
+B) Declare that you are going to override the toString method from inside the Orange class
+R: public class Orange {@Override public String toString(){}}
+
+C) Call superclass Fruit's constructor from subclass Orange's constructor
+R: public class Orange {public Orange(String shape, String color, int calories) {super(shape, color, calories)}}
+
+//9.11 Discuss the two uses of the super keyword
+R: Super can be used to call the superclass's constructor, attributes and methods
+
+//9.12 A method decode is declared in a parent class, and also the child. How can you access the decode() of the parent from within the child?
+R: With the keyword super (super.decode())
+
+//9.13 Explain get methods
+R: It promotes encapsulation, and if you want to change the names of the variables, only the bodies of the get and set methods would have to change, not the bodies of other methods
