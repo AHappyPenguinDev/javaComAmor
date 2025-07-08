@@ -1,6 +1,6 @@
-// Fig. 15.9: Account.java
-// Account class for storing records as objects.
-public class Account {
+
+public class Account implements Serializable {
+
   private int accountNumber;
   private String firstName;
   private String lastName;
@@ -61,6 +61,6 @@ public class Account {
   }
 
   public double combine(TransactionRecord record) {
-    getBalance() + record.getTransactionAmount();
+    return getBalance() + record.getTransactionAmount();
   }
 }

@@ -1,0 +1,33 @@
+(File Matching) 
+
+Exercício de autoavaliação 15.2 pediu que você escrevesse uma série de declarações simples.
+Na verdade, essas declarações formam o núcleo de um tipo importante de programa de processamento de arquivos, ou seja,
+um programa de correspondência de arquivos. No processamento de dados comerciais, é comum haver vários arquivos em cada sistema de aplicativo. Em um sistema de contas a receber, por exemplo, geralmente há um arquivo mestre que contém informações detalhadas sobre cada cliente, como nome, endereço, número de telefone, saldo pendente, limite de crédito, termos de desconto, acordos contratuais e, possivelmente, um histórico condensado de compras recentes e pagamentos em dinheiro.
+À medida que as transações ocorrem (ou seja, as vendas são feitas e os pagamentos chegam pelo correio), as informações sobre
+elas são inseridas em um arquivo. Ao final de cada período comercial (um mês para algumas empresas, uma semana para outras e um dia em alguns casos), o arquivo de transações (chamado "trans.txt") é aplicado ao
+arquivo mestre (chamado "oldmast.txt") para atualizar os registros de compra e pagamento de cada conta.
+Durante uma atualização, o arquivo mestre é reescrito como o arquivo "newmast.txt", que é usado no
+final do próximo período comercial para iniciar novamente o processo de atualização.
+Os programas de correspondência de arquivos precisam lidar com determinados problemas que não ocorrem em programas de arquivo único. Por exemplo, nem sempre ocorre uma correspondência. Se um cliente no arquivo mestre não tiver feito
+nenhuma compra ou pagamento em dinheiro no período comercial atual, nenhum registro desse cliente
+aparecerá no arquivo de transações. Da mesma forma, um cliente que fez algumas compras ou pagamentos em dinheiro pode ter acabado de se mudar para essa comunidade e, nesse caso, a empresa pode não ter tido a
+chance de criar um registro mestre para esse cliente.
+Escreva um programa completo de correspondência de arquivos de contas a receber. Use o número da conta em
+cada arquivo como a chave de registro para fins de correspondência. Suponha que cada arquivo seja um arquivo de texto sequencial com
+registros armazenados em ordem crescente de número de conta
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+a) Defina a classe TransactionRecord. Os objetos dessa classe contêm um número de conta e um valor
+para a transação. Forneça métodos para modificar e recuperar esses valores.
+
+b) Modifique a classe Account na Fig. 15.9 para incluir o método combine, que recebe um objeto TransactionRecord e combina o saldo do objeto Account e o valor do montante do objeto TransactionRecord.
+
+c) Escreva um programa para criar dados para testar o programa. Use os dados da conta de amostra em
+Figs. 15.16 e 15.17. Execute o programa para criar os arquivos trans.txt e oldmast.txt
+para serem usados pelo seu programa de correspondência de arquivos
+
+d) Crie a classe FileMatch para executar a funcionalidade de correspondência de arquivos. A classe deve
+conter métodos que leiam oldmast.txt e trans.txt. Quando ocorrer uma correspondência (ou seja, registros com o mesmo número de conta aparecem tanto no arquivo mestre quanto no arquivo de transação), adicione o valor em dólares no registro de transação ao saldo atual no registro mestre e grave o registro “newmast.txt”. (Suponha que as compras sejam indicadas
+por valores positivos no arquivo de transação e os pagamentos por valores negativos). Quando
+houver um registro mestre para uma determinada conta, mas nenhum registro de transação correspondente, basta gravar o registro mestre em "newmast.txt". Quando houver um registro de transação, mas não houver um registro mestre correspondente, imprima em um arquivo de log a mensagem "Unmatched
+transaction record for account number..." (preencha o número da conta no registro de transação). O arquivo de registro deve ser um arquivo de texto chamado "log.txt".
