@@ -41,12 +41,11 @@ class FilteredDictionary {
 
       System.out.printf("\nPossible characters:%s ", possibleChars);
 
-      // Create Regex
+      // Create regex
       StringBuilder regexBuilder = new StringBuilder();
       regexBuilder.append("[");
-      for (char c : possibleChars) {
+      for (char c : possibleChars)
         regexBuilder.append(c);
-      }
       regexBuilder.append("]*"); // Match any number of the characters
       String regex = regexBuilder.toString();
 
