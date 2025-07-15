@@ -1,3 +1,4 @@
+//I dont think this is finished, might come back later...
 public class BasePlusCommissionEmployee {
   private final String firstname;
   private final String lastName;
