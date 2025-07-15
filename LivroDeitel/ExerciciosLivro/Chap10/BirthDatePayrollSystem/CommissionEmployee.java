@@ -8,8 +8,8 @@ public class CommissionEmployee extends Employee {
   // constructor
   public CommissionEmployee(String firstName, String lastName,
       String socialSecurityNumber, double grossSales,
-      double commissionRate, Date birthDate, Date paymentDate) {
-    super(firstName, lastName, socialSecurityNumber, birthDate, paymentDate);
+      double commissionRate, Date birthDate) {
+    super(firstName, lastName, socialSecurityNumber, birthDate);
 
     if (commissionRate <= 0.0 || commissionRate >= 1.0) { // validate
       throw new IllegalArgumentException(
@@ -63,23 +63,8 @@ public class CommissionEmployee extends Employee {
   @Override
   public String toString() {
     return String.format("%s: %s%n%s: $%,.2f; %s: %.2f",
-        "commission employee", super.toString(),
-        "gross sales", getGrossSales(),
-        "commission rate", getCommissionRate());
+        "Commission employee", super.toString(),
+        "Gross sales", getGrossSales(),
+        "Commission rate", getCommissionRate());
   }
 }
-
-/**************************************************************************
- * (C) Copyright 1992-2018 by Deitel & Associates, Inc. and *
- * Pearson Education, Inc. All Rights Reserved. *
- * *
- * DISCLAIMER: The authors and publisher of this book have used their *
- * best efforts in preparing the book. These efforts include the *
- * development, research, and testing of the theories and programs *
- * to determine their effectiveness. The authors and publisher make *
- * no warranty of any kind, expressed or implied, with regard to these *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or *
- * consequential damages in connection with, or arising out of, the *
- * furnishing, performance, or use of these programs. *
- *************************************************************************/
