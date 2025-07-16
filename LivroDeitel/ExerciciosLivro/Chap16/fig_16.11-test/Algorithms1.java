@@ -1,5 +1,5 @@
 
-//Test if array letters changes when the list is reversed
+//Test if array letters changes when the list is reversed (changes to list affect array)
 //Yes, it changes. That is very weird
 
 import java.util.Arrays;
