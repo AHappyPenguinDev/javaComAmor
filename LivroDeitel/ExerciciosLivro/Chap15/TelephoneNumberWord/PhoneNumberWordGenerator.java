@@ -7,26 +7,16 @@ import java.util.Formatter;
 
 public class PhoneNumberWordGenerator {
 
-  // I need to take the fucking input (7 digit string)
-  // and for each digit, i need to compare it to the phoneNumberChart, and for
-  // it's corresponding char code,
-  // append to a stringbuilder one of its values
-  // but i don't need the three chars. I need one
-
-  // .
-  // .:;:.
-  // .:;;;;;:.
-  // ;;;;;
-  // ;;;;;
-  // ;;;;;
-  // ;;;;; nevermind the rage please
-  //
   // I went a bit over the task on this one, but I liked the recursive approach
-  // much
-  // more than having 20 thousand for loops like some other solutions
+  // much more than having 20 thousand for loops like some other solutions
   // I got this solution from:
   // https://www.geeksforgeeks.org/dsa/find-possible-words-phone-digits/
   // If anyone ever sees this, try the combination 7364737 :)
+
+  public static void main(String[] args) {
+    String path = "phoneNumber.txt";
+    PhoneNumberWordGenerator.generatePhoneNumberWordsFile(path);
+  }
 
   private static final String[] phoneNumberChars = { "", "", "ABC", "DEF", "GHI", "JKL", "MNO",
       "PRS", "TUV", "WXY" };
@@ -124,29 +114,4 @@ public class PhoneNumberWordGenerator {
     }
   }
 
-  // public static void searchForWords(String phoneNumberFileContent) {
-  // try (BufferedReader reader =
-  // Files.newBufferedReader(Paths.get(linuxLocalWordList));) {
-  // do {
-  // String word = reader.readLine();
-  // if (word.matches(""))
-  // writer.write(word + "\n");
-  // } while (reader.readLine() != null);
-  // } catch (IOException e) {
-  // System.err.println("Error opening file");
-  // }
-  // System.out.println(phoneNumberFileContent);
-  // }
-
-  // public static int generateFile(Path path) {
-  // try (Formatter output = new Formatter(path);) {
-  // return -1;
-  // }
-  // }
-
-  public static void main(String[] args) {
-    String path = "phoneNumber.txt";
-    PhoneNumberWordGenerator.generatePhoneNumberWordsFile(path);
-
-  }
 }

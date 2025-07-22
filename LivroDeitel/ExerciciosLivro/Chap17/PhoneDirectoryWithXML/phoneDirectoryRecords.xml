@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<phoneRecords>
+    <phoneRecord>
+        <firstName>John</firstName>
+        <lastName>Smith</lastName>
+        <phoneNumber>956-5078</phoneNumber>
+    </phoneRecord>
+    <phoneRecord>
+        <firstName>Charline</firstName>
+        <lastName>Bittencourt</lastName>
+        <phoneNumber>067-3476</phoneNumber>
+    </phoneRecord>
+    <phoneRecord>
+        <firstName>Brad</firstName>
+        <lastName>Pitt</lastName>
+        <phoneNumber>311-2564</phoneNumber>
+    </phoneRecord>
+    <phoneRecord>
+        <firstName>Hideo</firstName>
+        <lastName>Kojima</lastName>
+        <phoneNumber>213-4568</phoneNumber>
+    </phoneRecord>
+</phoneRecords>

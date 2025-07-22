@@ -1,23 +1,40 @@
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class ManipulatingStreamInvoice {
+  public static void main(String[] args) {
+    Invoice[] invoices = {
+        new Invoice(83, "Electric sander", 7, 7.98),
+        new Invoice(24, "Power saw", 18, 99.99),
+        new Invoice(7, "Sledge hammer", 11, 21.50),
+        new Invoice(77, "Hammer", 76, 11.99),
+        new Invoice(39, "Lawn mower", 3, 79.50),
+        new Invoice(68, "Screw driver", 106, 6.99),
+        new Invoice(56, "Jig saw", 21, 11.00),
+        new Invoice(3, "Wrench", 34, 7.50)
+    };
 
-  public static void sortByPartDescription(List<Invoice> list) {
+    sortByPartDescription(invoices);
+    sortByPartNumber(invoices);
+    sortByQuantity(invoices);
+    sortByInvoiceValue(invoices);
+    findSaw(invoices);
+  }
+
+  public static void sortByPartDescription(Invoice[] invoices) {
     Function<Invoice, String> byPartDescription = Invoice::getPartDescription;
     System.out.printf("%nSorted by Part description:%n");
-    list.stream() // Stream<Invoice>
+    Arrays.stream(invoices)
         .sorted(Comparator.comparing(byPartDescription))
         .forEach(System.out::println);
   }
 
-  public static void sortByPartNumber(List<Invoice> list) {
+  public static void sortByPartNumber(Invoice[] invoices) {
     Function<Invoice, Integer> byPartNumber = Invoice::getPartNumber;
     System.out.printf("%nSorted by Part number:%n");
-    list.stream() // Stream<Invoice>
+    Arrays.stream(invoices) // Stream<Invoice>
         .sorted(Comparator.comparing(byPartNumber))
         .forEach(System.out::println);
   }
@@ -51,26 +68,5 @@ public class ManipulatingStreamInvoice {
         .filter(containsSaw)
         .sorted(Comparator.comparing(Invoice::getPartDescription))
         .forEach(System.out::println);
-  }
-
-  public static void main(String[] args) {
-    Invoice[] invoices = {
-        new Invoice(83, "Electric sander", 7, 7.98),
-        new Invoice(24, "Power saw", 18, 99.99),
-        new Invoice(7, "Sledge hammer", 11, 21.50),
-        new Invoice(77, "Hammer", 76, 11.99),
-        new Invoice(39, "Lawn mower", 3, 79.50),
-        new Invoice(68, "Screw driver", 106, 6.99),
-        new Invoice(56, "Jig saw", 21, 11.00),
-        new Invoice(3, "Wrench", 34, 7.50)
-    };
-
-    List<Invoice> list = Arrays.asList(invoices);
-
-    sortByPartDescription(list);
-    sortByPartNumber(list);
-    sortByQuantity(invoices);
-    sortByInvoiceValue(invoices);
-    findSaw(invoices);
   }
 }
