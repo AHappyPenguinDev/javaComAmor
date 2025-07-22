@@ -13,7 +13,7 @@ public class PainterAppModifications extends Application {
   @Override
   public void start(Stage stage) throws Exception {
     try {
-      String fxmlPath = "/home/hamstermech/javaComAmor/LivroDeitel/ExerciciosLivro/Chap13/PainterAppModifications/PainterAppModifications.fxml";
+      String fxmlPath = "PainterAppModifications.fxml";
       Parent root = FXMLLoader.load(getClass().getResource("PainterAppModifications.fxml"));
       Scene scene = new Scene(root);
       stage.setTitle("Painter App Modifications"); // displayed in window's title bar

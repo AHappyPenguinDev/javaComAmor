@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PhoneDirectory {
   public static void main(String[] args) {
@@ -22,12 +24,13 @@ public class PhoneDirectory {
     try (BufferedWriter outputNumber = Files.newBufferedWriter(Paths.get("recordsByNumber.txt"));
         BufferedWriter outputName = Files.newBufferedWriter(Paths.get("recordsByName.txt"))) {
 
-      PhoneRecords phoneRecordsNumber = new PhoneRecord();
-      PhoneRecords phoneRecordsName = new PhoneRecord(); // this was Records
+      // List<PhoneRecord> phoneRecordsNumber = new ArrayList<>();
+      // List<PhoneRecord> phoneRecordsName = new ArrayList<>(); // this was Records
 
       PhoneRecord[] phoneRecordsArray = {
           new PhoneRecord("Smith", "John", "956-5078"),
           new PhoneRecord("Bittencourt", "Charline", "067-3476"),
+          new PhoneRecord("Aquino", "João", "999-9999"),
           new PhoneRecord("Pitt", "Brad", "311-2564"),
           new PhoneRecord("Kojima", "Hideo", "213-4568"),
           new PhoneRecord("Carvalho", "Olavo", "011-9973")
@@ -37,14 +40,14 @@ public class PhoneDirectory {
       PhoneRecord[] sortedByName = sortPhoneRecordsByName(phoneRecordsArray);
 
       for (PhoneRecord phoneRecord : sortedByNumber) {
-        phoneRecordsNumber.getPhoneRecords().add(phoneRecord);
+        outputNumber.write(String.format("%s %s %s %n",
+            phoneRecord.getLastName(), phoneRecord.getFirstName(), phoneRecord.getPhoneNumber()));
       }
 
       for (PhoneRecord phoneRecord : sortedByName) {
-        phoneRecordsName.getPhoneRecords().add(phoneRecord);
+        outputName.write(String.format("%s %s %s %n",
+            phoneRecord.getLastName(), phoneRecord.getFirstName(), phoneRecord.getPhoneNumber()));
       }
-
-      // write to file here
     } catch (IOException ioException) {
 
       System.err.println("What the heeeeeeeeeeell");
@@ -79,15 +82,30 @@ public class PhoneDirectory {
     try (BufferedReader inputByNumber = Files.newBufferedReader(Paths.get("recordsByNumber.txt"));
         BufferedReader inputByName = Files.newBufferedReader(Paths.get("recordsByName.txt"))) {
 
-      List<PhoneRecord> phoneRecordsNumber = new ArrayList<>(); 
+      List<PhoneRecord> phoneRecordsNumber = new ArrayList<>();
       List<PhoneRecord> phoneRecordsName = new ArrayList<>();
 
-      while (inputByNumber.readLine() != null) {
-        phoneRecordsNumber.add(inputByNumber.readLine());
+      Path pathNumber = Paths.get("recordsByNumber.txt");
+      Path pathName = Paths.get("recordsByName.txt");
+
+      try (Stream<String> lines = Files.lines(pathNumber)) {
+        lines.forEachOrdered(line -> {
+          String[] parts = line.split(" ");
+          PhoneRecord record = new PhoneRecord(parts[0], parts[1], parts[2]);
+          phoneRecordsNumber.add(record);
+        });
+      } catch (IOException e) {
+        e.printStackTrace();
       }
 
-      while (inputByName.readLine() != null) {
-        phoneRecordsName.add(inputByName.readLine());
+      try (Stream<String> lines = Files.lines(pathName)) {
+        lines.forEachOrdered(line -> {
+          String[] parts = line.split(" ");
+          PhoneRecord record = new PhoneRecord(parts[0], parts[1], parts[2]);
+          phoneRecordsName.add(record);
+        });
+      } catch (IOException e) {
+        e.printStackTrace();
       }
 
       System.out.printf("%nRecords sorted by Phone Number%n%-15s%-15s%-15s%n",

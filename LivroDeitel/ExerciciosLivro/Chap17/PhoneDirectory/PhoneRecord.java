@@ -41,4 +41,10 @@ public class PhoneRecord {
     this.phoneNumber = phoneNumber;
   }
 
+  @Override
+  public String toString() {
+    return String.format("(%s:%s | %s:%s | %s:%s)",
+        "Last name", getLastName(), "First Name", getFirstName(), "Phone Number", getPhoneNumber());
+  }
+
 }

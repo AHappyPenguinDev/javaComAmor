@@ -1,66 +1,41 @@
+//UNFINISHED!
 
 public class Account implements Serializable {
 
   private int accountNumber;
   private String firstName;
-  private String lastName;
-  private double balance;
+  pri
 
-  // initializes an Account with default values
-  public Account() {
-    this(0, "", "", 0.0);
-  }
 
-  // initializes an Account with provided values
-  public Account(int accountNumber, String firstName,
-      String lastName, double balance) {
-    this.accountNumber = accountNumber;
+is(0,"","",0.0);
+
+ initializes an Account 
+blic Account(int accoun
+
+is.accountNumber = accountNumber;
     this.firstName = firstName;
-    this.lastName = lastName;
-    this.balance = balance;
-  }
+    thi
 
-  // get account number
-  public int getAccountNumber() {
-    return accountNumber;
-  }
+  et account numeic int getAccutNumber()rn accountNubr;
 
-  // set account number
-  public void setAccountNumber(int accountNumber) {
-    this.accountNumber = accountNumber;
-  }
+   set account number ic voidseAccountNumber(int accountNumber)
+  i
 
-  // get first name
-  public String getFirstName() {
-    return firstName;
-  }
+  et first namb
 
-  // set first name
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
+   
 
-  // get last name
-  public String getLastName() {
+  is.firstName = firstName;
+
+  blic String getLastName() {
     return lastName;
-  }
 
-  // set last name
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
+   set last name ic void setLatame(Strini
 
-  // get balance
-  public double getBalance() {
-    return balance;
-  }
+  et balanceb
 
-  // set balance
-  public void setBalance(double balance) {
-    this.balance = balance;
-  }
+   
 
-  public double combine(TransactionRecord record) {
-    return getBalance() + record.getTransactionAmount();
-  }
-}
+  is.balance = balance;
+
+p

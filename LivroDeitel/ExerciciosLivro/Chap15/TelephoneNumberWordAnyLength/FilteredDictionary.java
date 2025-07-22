@@ -1,3 +1,4 @@
+//UNFINISHED!
 //run to create a wordList.txt with only words with less than 6 letters using linux's local word list (I will put a copy in this folder)
 
 import java.io.BufferedReader;
