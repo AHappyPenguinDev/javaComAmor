@@ -1,10 +1,9 @@
-
-//You need java 8 for this one. As from java8 onwards, javax.xml.bind has been removed
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -13,8 +12,6 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import javax.xml.bind.JAXB;
-
 public class PhoneDirectory {
   public static void main(String[] args) {
     createPhoneDirectoryFile();
@@ -22,11 +19,11 @@ public class PhoneDirectory {
   }
 
   public static void createPhoneDirectoryFile() {
-    try (BufferedWriter outputNumber = Files.newBufferedWriter(Paths.get("recordsByNumber.xml"));
-        BufferedWriter outputName = Files.newBufferedWriter(Paths.get("recordsByName.xml"))) {
+    try (BufferedWriter outputNumber = Files.newBufferedWriter(Paths.get("recordsByNumber.txt"));
+        BufferedWriter outputName = Files.newBufferedWriter(Paths.get("recordsByName.txt"))) {
 
-      PhoneRecords phoneRecordsNumber = new PhoneRecords();
-      PhoneRecords phoneRecordsName = new PhoneRecords();
+      PhoneRecords phoneRecordsNumber = new PhoneRecord();
+      PhoneRecords phoneRecordsName = new PhoneRecord(); // this was Records
 
       PhoneRecord[] phoneRecordsArray = {
           new PhoneRecord("Smith", "John", "956-5078"),
@@ -47,8 +44,7 @@ public class PhoneDirectory {
         phoneRecordsName.getPhoneRecords().add(phoneRecord);
       }
 
-      JAXB.marshal(phoneRecordsNumber, outputNumber);
-      JAXB.marshal(phoneRecordsName, outputName);
+      // write to file here
     } catch (IOException ioException) {
 
       System.err.println("What the heeeeeeeeeeell");
@@ -80,23 +76,31 @@ public class PhoneDirectory {
   }
 
   public static void readPhoneDirectoryFile() {
-    try (BufferedReader inputNumber = Files.newBufferedReader(Paths.get("recordsByNumber.xml"));
-        BufferedReader inputName = Files.newBufferedReader(Paths.get("recordsByName.xml"))) {
+    try (BufferedReader inputByNumber = Files.newBufferedReader(Paths.get("recordsByNumber.txt"));
+        BufferedReader inputByName = Files.newBufferedReader(Paths.get("recordsByName.txt"))) {
 
-      PhoneRecords phoneRecordsNumber = JAXB.unmarshal(inputNumber, PhoneRecords.class);
-      PhoneRecords phoneRecordsName = JAXB.unmarshal(inputName, PhoneRecords.class);
+      List<PhoneRecord> phoneRecordsNumber = new ArrayList<>(); 
+      List<PhoneRecord> phoneRecordsName = new ArrayList<>();
+
+      while (inputByNumber.readLine() != null) {
+        phoneRecordsNumber.add(inputByNumber.readLine());
+      }
+
+      while (inputByName.readLine() != null) {
+        phoneRecordsName.add(inputByName.readLine());
+      }
 
       System.out.printf("%nRecords sorted by Phone Number%n%-15s%-15s%-15s%n",
           "First Name", "Last Name", "Phone Number");
 
-      for (PhoneRecord record : phoneRecordsNumber.getPhoneRecords()) {
+      for (PhoneRecord record : phoneRecordsNumber) {
         System.out.printf("%-15s%-15s%-15s%n",
             record.getFirstName(), record.getLastName(), record.getPhoneNumber());
       }
 
-      System.out.printf("%nRecords sorted by Last and then First Name%n%-15s%-15s%-15s%n",
+      System.out.printf("%nRecords sorted by Last and then first Name%n%-15s%-15s%-15s%n",
           "Last Name", "First Name", "Phone Number");
-      for (PhoneRecord record : phoneRecordsName.getPhoneRecords()) {
+      for (PhoneRecord record : phoneRecordsName) {
         System.out.printf("%-15s%-15s%-15s%n",
             record.getLastName(), record.getFirstName(), record.getPhoneNumber());
       }
@@ -104,4 +108,5 @@ public class PhoneDirectory {
       System.err.println("What the dog doin");
     }
   }
+
 }

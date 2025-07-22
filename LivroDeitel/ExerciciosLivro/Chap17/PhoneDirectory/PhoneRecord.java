@@ -33,6 +33,10 @@ public class PhoneRecord {
     return phoneNumber;
   }
 
+  public int getPhoneNumberNoPunct() {
+    return Integer.parseInt(getPhoneNumber().replaceAll("[^0-9]", ""));
+  }
+
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
