@@ -1,0 +1,12 @@
+18.8 - What does the following code do?
+* public void printInt(int n) {
+*    if(n != 0) {
+*        printInt(n - 1);
+*        System.out.println( n);
+*      }
+*  }
+
+R:  The code creates method printInt that takes an int as an argument.
+    The method's body then checks if n is not 0. If it isn't, printInt is called recursively with n-1 as its argument
+    and the value of n is printed on the screen
+  
