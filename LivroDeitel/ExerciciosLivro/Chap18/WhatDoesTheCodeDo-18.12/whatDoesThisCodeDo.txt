@@ -1,0 +1,9 @@
+// 18.12 - What does the following program do?
+
+R: In the way it's in the book , it prints an Illegal start of expression error
+//(MysteryClass.java:13: error: illegal start of expression
+//  public static void main(String[] args) {
+//  ^
+//1 error)
+
+Other than that, method mystery is supposed to shuffle the elements of an array, return nothing and print the unshuffled elements
