@@ -6,8 +6,9 @@ public class VisualizingRecursion {
 
   // private helper method so I can indent the steps
   private static long factorial(long number, int indent) {
-    String spaces = "  ".repeat(indent);
+    String spaces = "  ".repeat(indent); // method repeat adds "indent" amount of spaces to spaces variable
     System.out.printf("%n%sEntering factorial(%d)%n", spaces, number);
+    
     if (number <= 1) { // test for base case
       System.out.printf("%n%sBase case reached -> factorial(%d) = 1%n", spaces, number);
       return 1; // base cases: 0! = 1 and 1! = 1
@@ -16,7 +17,6 @@ public class VisualizingRecursion {
       indent++;
       System.out.printf("%sComputing: %d * factorial(%d)", spaces, number, number - 1);
       long recursiveResult = number * factorial(number - 1, indent + 1); // calc factorial and increase indent by one
-
       System.out.printf("%n%sReturning: factorial(%d) = %d * %d", spaces, number, number, recursiveResult);
       // when method starts returning, the indent goes back to what it was on the
       // previous method call, that's where the magic lies.
@@ -26,12 +26,10 @@ public class VisualizingRecursion {
 
   public static void main(String[] args) {
     String bar = "----------------------------------------------------------";
-    for (int counter = 0; counter <= 9; counter++) {
-      System.out.printf("%s%n%s%d:|%n", bar, "Factorial of ", counter);
-      System.out.printf("%17s%n%17s%n%17s%n", "|", "|", "V"); // print arrow because it's cool, but it breaks
-      // when there is more than one digit on the number. I don't know how to fix that
-      // and I am not bothered to do it now :)
-      System.out.printf("%n%d! = %d%n", counter, factorial(counter));
+    for (int i = 0; i <= 9; i++) {
+      System.out.printf("%s%n%s%d:%n", bar, "Factorial of ", i);
+      System.out.printf("%14s%n%14s%n%14s%n", "|", "|", "V"); // Prints arrow because arrow is cool :)
+      System.out.printf("%n%d! = %d%n", i, factorial(i));
     }
     System.out.printf("%n%s", bar);
   }

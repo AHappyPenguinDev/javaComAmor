@@ -1,0 +1,7 @@
+//18.13 - What does the following program do?
+
+R: The program prints a given array in the inverse order. 
+Method main creates a 10 element array with digits from 1-10, it then initializes String variable results that takes someMethod with the array and 0
+as arguments.
+Method someMethod iterates over the array recursively and returns a String containing array at index x for each iteration
+The results are then printed out in method main

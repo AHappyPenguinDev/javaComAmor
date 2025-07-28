@@ -1,10 +1,11 @@
 public class SomeClass {
 
   public static String someMethod(int[] array2, int x) {
-    if (x < array2.length)
+    if (x < array2.length) {
       return String.format("%s%d ", someMethod(array2, x + 1), array2[x]);
-
-    return "";
+    } else {
+      return "";
+    }
   }
 
   public static void main(String[] args) {
