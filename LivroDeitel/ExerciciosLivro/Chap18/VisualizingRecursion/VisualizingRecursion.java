@@ -4,16 +4,14 @@ public class VisualizingRecursion {
     return factorial(number, 0);
   }
 
-  // private helper method so I can indent the steps
   private static long factorial(long number, int indent) {
     String spaces = "  ".repeat(indent); // method repeat adds "indent" amount of spaces to spaces variable
     System.out.printf("%n%sEntering factorial(%d)%n", spaces, number);
-    
+
     if (number <= 1) { // test for base case
       System.out.printf("%n%sBase case reached -> factorial(%d) = 1%n", spaces, number);
       return 1; // base cases: 0! = 1 and 1! = 1
-    } 
-    else { // recursion step
+    } else { // recursion step
       indent++;
       System.out.printf("%sComputing: %d * factorial(%d)", spaces, number, number - 1);
       long recursiveResult = number * factorial(number - 1, indent + 1); // calc factorial and increase indent by one
