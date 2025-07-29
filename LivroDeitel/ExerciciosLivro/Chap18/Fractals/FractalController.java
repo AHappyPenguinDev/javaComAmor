@@ -1,12 +1,16 @@
 
 // Fig. 18.20: FractalController.java
 // Drawing the "Lo feather fractal" using recursion.
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -22,15 +26,28 @@ public class FractalController {
   private ColorPicker colorPicker;
   @FXML
   private Label levelLabel;
+  @FXML
+  private ChoiceBox<String> fractalArmChoiceBox;
 
   // other instance variables
   private Color currentColor = Color.BLUE;
   private int level = MIN_LEVEL; // initial fractal level
   private GraphicsContext gc; // used to draw on Canvas
+  private String[] armIds = { "1", "2", "3", "4", "5" };
+  Map<Integer, Color> fractalArmMap = new HashMap<>(); // Map with Arm id key and color value
 
   // initialize the controller
   public void initialize() {
     levelLabel.setText("Level: " + level);
+    fractalArmChoiceBox.getItems().addAll(armIds);
+    // Default colors for each arm {
+    // Starts with default of purple gradient
+    fractalArmMap.put(1, Color.web("#ca5cdd"));
+    fractalArmMap.put(2, Color.web("#be2ed6"));
+    fractalArmMap.put(3, Color.web("#b100cd"));
+    fractalArmMap.put(4, Color.web("#a000c8"));
+    fractalArmMap.put(5, Color.web("#8a00c2"));
+    // }
     colorPicker.setValue(currentColor); // start with purple
     gc = canvas.getGraphicsContext2D(); // get the GraphicsContext
     drawFractal();
@@ -40,6 +57,8 @@ public class FractalController {
   @FXML
   void colorSelected(ActionEvent event) {
     currentColor = colorPicker.getValue(); // get new Color
+    int arm = Integer.parseInt(fractalArmChoiceBox.getValue());
+    fractalArmMap.put(arm, currentColor);
     drawFractal();
   }
 
@@ -66,22 +85,34 @@ public class FractalController {
   // clear Canvas, set drawing color and draw the fractal
   private void drawFractal() {
     gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-    gc.setStroke(currentColor);
-    drawFractal(level, getWidth() / 2, getHeight() / 2, (getWidth() / 2) + 80, (getHeight() / 2) - 90, Color.RED,
-        g);
-    drawFractal(level, getWidth() / 2, getHeight() / 2, (getWidth() / 2) + 120, (getHeight() / 2) + 20, Color.GREEN,
-        g);
-    drawFractal(level, getWidth() / 2, getHeight() / 2, (getWidth() / 2), (getHeight() / 2) + 100, Color.YELLOW, g);
-    drawFractal(level, getWidth() / 2, getHeight() / 2, (getWidth() / 2) - 120, (getHeight() / 2) + 20, Color.PINK,
-        g);
-    drawFractal(level, getWidth() / 2, getHeight() / 2, (getWidth() / 2) - 80, (getHeight() / 2) - 90, Color.BLUE,
-        g);
+    // Loop over each key in the map, adding the current color for current key
+    for (int key : fractalArmMap.keySet()) {
+      currentColor = fractalArmMap.get(key);
+      switch (key) {
+        case 1:
+          drawFractal(level, 400 / 2, 480 / 2, (400 / 2) + 80, (480 / 2) - 90, currentColor, gc);
+          break;
+        case 2:
+          drawFractal(level, 400 / 2, 480 / 2, (400 / 2) + 120, (480 / 2) + 20, currentColor, gc);
+          break;
+        case 3:
+          drawFractal(level, 400 / 2, 480 / 2, (400 / 2), (480 / 2) + 100, currentColor, gc);
+          break;
+        case 4:
+          drawFractal(level, 400 / 2, 480 / 2, (400 / 2) - 120, (480 / 2) + 20, currentColor, gc);
+          break;
+        case 5:
+          drawFractal(level, 400 / 2, 480 / 2, (400 / 2) - 80, (480 / 2) - 90, currentColor, gc);
+          break;
+      }
+    }
   }
 
   // draw fractal recursively
-  public void drawFractal(int level, int xA, int yA, int xB, int yB) {
+  public void drawFractal(int level, int xA, int yA, int xB, int yB, Color color, GraphicsContext gc) {
     // base case: draw a line connecting two given points
     if (level == 0) {
+      gc.setStroke(color);
       gc.strokeLine(xA, yA, xB, yB);
     } else { // recursion step: determine new points, draw next level
       // calculate midpoint between (xA, yA) and (xB, yB)
@@ -95,34 +126,12 @@ public class FractalController {
       int yD = yA + (yC - yA) / 2 + (xC - xA) / 2;
 
       // recursively draw the Fractal
-      drawFractal(level - 1, xD, yD, xA, yA);
-      drawFractal(level - 1, xD, yD, xC, yC);
-      drawFractal(level - 1, xD, yD, xB, yB);
+      drawFractal(level - 1, xD, yD, xA, yA, color, gc);
+      drawFractal(level - 1, xD, yD, xC, yC, color, gc);
+      drawFractal(level - 1, xD, yD, xB, yB, color, gc);
     }
   }
 
-  public static void selectionSort(int[] data) {
-    // loop over data.length - 1 elements
-    for (int i = 0; i < data.length - 1; i++) {
-      int smallest = i; // first index of remaining array
-
-      // loop to find index of smallest element
-      for (int index = i + 1; index < data.length; index++) {
-        if (data[index] < data[smallest]) {
-          smallest = index;
-        }
-      }
-
-      swap(data, i, smallest); // swap smallest element into position
-    }
-  }
-
-  // helper method to swap values in two elements
-  private static void swap(int[] data, int first, int second) {
-    int temporary = data[first]; // store first in temporary
-    data[first] = data[second]; // replace first with second
-    data[second] = temporary; // put temporary in second
-  }
 }
 
 /**************************************************************************

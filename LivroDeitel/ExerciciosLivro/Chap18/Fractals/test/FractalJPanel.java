@@ -3,7 +3,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
 
 public class FractalJPanel extends JPanel {
@@ -37,6 +36,7 @@ public class FractalJPanel extends JPanel {
       int yD = yA + (yC - yA) / 2 + (xC - xA) / 2;
 
       // recursively draw the Fractal
+      System.out.printf("%n%nGet width: %d%nGet height: %d%n", getWidth(), getHeight());
       drawFractal(level - 1, xD, yD, xA, yA, color, g);
       drawFractal(level - 1, xD, yD, xC, yC, color, g);
       drawFractal(level - 1, xD, yD, xB, yB, color, g);
