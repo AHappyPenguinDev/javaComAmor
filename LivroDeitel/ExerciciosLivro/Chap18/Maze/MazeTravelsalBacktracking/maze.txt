@@ -1,0 +1,32 @@
+- - - - - - - - - - - - 
+| . . . # . . . . . . | 
+. . # . # . # # # # . | 
+| # # . # . . . . # . . 
+| . . . . # # # . # . | 
+| # # # . # . # . # . | 
+| . . # . # . # . # . | 
+| # . # . # . # . # . | 
+| . . . . . . . . # . | 
+| # # # # # . # # # . | 
+| . . . . . . # . . . | 
+- - - - - - - - - - - -
+
+1) first and last row = '-' (+ space)
+2) first and last col except for entrance and exit = '|'
+3) Randomly create entrance
+4) Randomly create exit
+5) There must be a path to the exit from the entrance
+
+- - - - - -
+| . # # # |
+| . # . . .
+| . . . # |
+. . # # # |
+- - - - - -
+
+6) Find random path to exit 
+7) Fill every other cell with hashtags as long as it doesn't block the path
+8) Replace random number of hashtags with dots 
+
+
+

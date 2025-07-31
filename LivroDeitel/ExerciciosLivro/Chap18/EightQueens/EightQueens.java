@@ -98,7 +98,8 @@ public class EightQueens {
     System.out.println(); // Fun fact: They do this println at the end in the book a couple of times, and
     // I believe this is because on zsh there is a "%" sign highlighting that this
     // is a partial line.
-    // At least this is what I will use it for, because it gets rid of the "%" :)
+    // At least this is what I will use it for, because it gets rid of the "%" at
+    // the end of lines" :)
   }
 
 }
