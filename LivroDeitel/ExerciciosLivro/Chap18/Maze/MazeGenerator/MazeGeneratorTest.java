@@ -7,7 +7,6 @@ public class MazeGeneratorTest {
     String[][] maze = mGenerator.generateMaze();
     for (int i = 0; i < rowNum; i++) {
       for (int j = 0; j < colNum; j++) {
-        String symbol = maze[i][j];
         System.out.printf("%s ", maze[i][j]);
       }
       System.out.println();

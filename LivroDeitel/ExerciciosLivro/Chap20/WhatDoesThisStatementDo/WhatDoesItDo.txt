@@ -1,0 +1,4 @@
+//20.11 (What Does this Statement Do?) Explain why a Java program might use the statement
+//List<Employee> workerList = new ArrayList<>();
+
+R: The statement declares a List of Employee workerList. A program might use this statement to list all the employees in a company an their respective properties

@@ -9,7 +9,7 @@ public class MazeTraversal {
   private int ms;
   private boolean[][] visited; // visited positions
   private List<int[]> path; // visited positions
-  private static final int[][] DIRECTIONS = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+  private static final int[][] DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
   public MazeTraversal(int mazeSize) { // constructor to initialize maze with the contents of maze.txt
     ms = mazeSize;
@@ -24,7 +24,6 @@ public class MazeTraversal {
         String[] tiles = line.split(" "); // splits line into an array of individual tiles
         for (int col = 0; col < maze.length; col++) {
           maze[row][col] = tiles[col];
-          System.out.printf("Maze in row %d, col %d: %s%n%n", row, col, maze[row][col]);
         }
       }
     } catch (Exception e) {
@@ -41,20 +40,23 @@ public class MazeTraversal {
   private boolean solveMaze(int row, int col) {
 
     // if at an invalid position, return false
-    if (row < 0 || col < 0 || row >= ms || col >= ms)
+    if (row <= 0 || col < 0 || row >= ms - 1 || col >= ms)
       return false;
 
-    if (maze[row][col].equals("#") || visited[row][col]) {
+    if (maze[row][col].equals("#") || maze[row][col].equals("|") || visited[row][col])
       return false;
-    }
 
     path.add(new int[] { row, col });
     visited[row][col] = true;
 
     // this is the goal. If col is at the last postion, a solution was found :)
-    if (col == ms - 1)
+    if (col == ms - 1) {
+      System.out.printf("Goal reached, Path:%n");
+      path.forEach(array -> System.out.println(Arrays.toString(array)));
       return true;
+    }
 
+    // DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
     for (int[] direction : DIRECTIONS) {
       int newRow = row + direction[0];
       int newCol = col + direction[1];
@@ -62,26 +64,24 @@ public class MazeTraversal {
         return true; // path found in recursion
     }
 
-    System.out.printf("Path contents: %s%n", Arrays.toString(path.get(row)));
-    path.remove(col);
+    path.remove(path.size() - 1);
     return false;
+
   }
 
   public void drawMaze(List<int[]> solvedPath) {
-    // Mark path with 'X'
+    // correct path highlighted with circle
     if (solvedPath != null) {
       for (int[] position : solvedPath) {
         maze[position[0]][position[1]] = "○"; // I couldn't help it. X and hashtags look TOO DAMN UGLY. So i'm using
-                                              // this circle
+                                              // this circle. Just replace it with X to make it like it is in the book
       }
     }
 
-    // Print maze
+    // print maze with solved path
     for (int i = 0; i < ms; i++) {
       for (int j = 0; j < ms; j++) {
-        String symbol = maze[i][j];
-        System.out.printf("%s ", symbol.equals(".") ? " " : maze[i][j]); // replace all dots with spaces because i'm
-                                                                         // lazy to do it manually
+        System.out.printf("%s ", maze[i][j]);
       }
       System.out.println();
     }
