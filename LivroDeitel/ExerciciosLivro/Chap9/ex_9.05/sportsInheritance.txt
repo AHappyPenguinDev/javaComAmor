@@ -1,0 +1,21 @@
+//Draw an Inheritance hierarchy for types of sports similar to the hierarchy shown in fig 9.2
+//soccer , volleyball , swimming , outdoor swimming, chess, e-sports, badminton, bycicle, racing  
+
+Sports
+|-- IndoorSports
+|     |- Swimming -- INTERFACE between Swimming and outdooor Swimming
+|     |- Badminton
+|     |- Ches
+|     |- E-Sports
+|     |- Tennis
+|     |- Pool
+|
+|-- OutdoorSports
+|     |- Soccer
+|     |- Volleyball
+|     |- Outdoor Swimming -- INTERFACE between outdoor Swimming and Swimming
+|     |- Cycling
+|     |- Racing
+|
+
+

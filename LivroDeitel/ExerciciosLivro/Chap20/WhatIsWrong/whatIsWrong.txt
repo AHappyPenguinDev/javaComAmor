@@ -1,0 +1,10 @@
+// (What Is Wrong) 
+// Assuming GClass is a generic class, What
+// is wrong with the following statement:
+
+GClass<Employee> obj = new GClass();
+
+R: The statement is missing the diamond notation when assigning 
+  a GClass obj to obj.
+
+It should be like this: GClass<>();

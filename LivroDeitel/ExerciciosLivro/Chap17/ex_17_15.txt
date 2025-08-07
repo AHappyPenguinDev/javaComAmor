@@ -1,0 +1,10 @@
+17.15 (Stream Performance) Answer the following questions with regard to the stream pipeline in Fig. 17.7:
+
+a) How many times does the filter operation call its lambda argument?
+R: 10 times (Range closed includes 1 and 10)
+
+b) How many times does the map operation call its lambda argument?
+R: 5 times (5 even numbers)
+
+c) If you reverse the filter and the map operations in the stream pipeline, how many times does the map operation call its lambda argument?
+R: 10, because there is no more filtering, so all 10 ints are included in the map operation 

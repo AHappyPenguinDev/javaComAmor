@@ -1,0 +1,5 @@
+//Every additional line of code is an opportunity for a defect, discuss the ways in which
+Inheritance promotes defect reduction
+
+R: Inheritance allows us to reuse code from super classes, instead of having to copy and paste
+the same code over and over again, creating opportunities for errors
