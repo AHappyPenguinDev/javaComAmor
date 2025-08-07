@@ -11,9 +11,12 @@ public class MazeGenerator {
   private int endRow;
   List<int[]> path;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   boolean[][] visited;
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+>>>>>>> origin/main
 
   public MazeGenerator(int rowNum, int colNum) {
     this.rowNum = rowNum;
@@ -22,10 +25,14 @@ public class MazeGenerator {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   private final int[][] DIRECTIONS = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
 =======
   private final int[][] DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+  private final int[][] DIRECTIONS = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+>>>>>>> origin/main
 
   public String[][] generateMaze() { // row num and col num are the dimensions
     for (int row = 0; row < rowNum; row++) {
@@ -65,12 +72,16 @@ public class MazeGenerator {
     SecureRandom random = new SecureRandom();
     startRow = random.nextInt(1, rowNum - 1);
 <<<<<<< HEAD
+<<<<<<< HEAD
     endRow = random.nextInt(1, rowNum - 1);
 =======
     System.out.printf("Start Row: %d%n", startRow);
     endRow = random.nextInt(1, rowNum - 1);
     System.out.printf("End Row: %d%n", endRow);
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+    endRow = random.nextInt(1, rowNum - 1);
+>>>>>>> origin/main
     maze[startRow][0] = ".";
     maze[endRow][colNum - 1] = ".";
   }
@@ -78,9 +89,12 @@ public class MazeGenerator {
   private void createRandomPath() {
     path = new ArrayList<>();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     visited = new boolean[rowNum][colNum];
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+>>>>>>> origin/main
     createRandomPath(startRow, 0);
   }
 
@@ -92,10 +106,14 @@ public class MazeGenerator {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
     if (maze[row][col].equals("|"))
       return false;
 
     path.add(new int[] { row, col }); // decision
+<<<<<<< HEAD
 =======
     // If at a wall, return false
     if (maze[row][col].equals("|") || visited[row][col])
@@ -104,6 +122,8 @@ public class MazeGenerator {
     path.add(new int[] { row, col }); // decision
     visited[row][col] = true;
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+>>>>>>> origin/main
 
     if (col == colNum - 1) { // this is the goal, get to the last col at specific row and find the dot
       System.out.printf("Goal reached, path contents: %n");

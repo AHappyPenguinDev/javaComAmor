@@ -9,10 +9,14 @@ public class MazeTraversal {
   private int ms;
   private boolean[][] visited; // visited positions
 <<<<<<< HEAD
+<<<<<<< HEAD
   private List<int[]> path; // visited positions
 =======
   private List<int[]> path;
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+  private List<int[]> path; // visited positions
+>>>>>>> origin/main
   private static final int[][] DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
   public MazeTraversal(int mazeSize) { // constructor to initialize maze with the contents of maze.txt

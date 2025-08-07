@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+>>>>>>> origin/main
 # 🐧 Java How to Program, 11/e (Early Objects) 🐧
 
 Solutions to some of the exercises from the book Java How to Program, 11/e (Late objects)
@@ -36,6 +39,9 @@ Solutions to some of the exercises from the book Java How to Program, 11/e (Late
 > - **Chapter 35** - [Swing GUI Components: Part 2](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap35) (WIP)
 > - **Chapter 36** - Java Module System and Other Java 9 Features (WIP)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+>>>>>>> origin/main

@@ -3,6 +3,9 @@
 
 public class GenericMethodTest {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
    public static void main(String[] args) {
       // create arrays of Integer, Double and Character
       Integer[] integerArray = {1, 2, 3, 4, 5};
@@ -42,6 +45,7 @@ public class GenericMethodTest {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
+<<<<<<< HEAD
  *************************************************************************/
 =======
   public static void main(String[] args) {
@@ -84,3 +88,6 @@ public class GenericMethodTest {
  * furnishing, performance, or use of these programs. *
  *************************************************************************/
 >>>>>>> 7cacd7e (i love githuuuuuuuuuuuuub)
+=======
+ *************************************************************************/
+>>>>>>> origin/main
