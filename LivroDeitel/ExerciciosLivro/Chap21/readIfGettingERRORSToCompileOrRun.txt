@@ -1,0 +1,15 @@
+Just a warning for someone that might be having problems running my solutions
+
+Since each of the exercises are importing package com.deitel.datastructures, the classloader needs to know where those packages are, and it will assume that they are in the current directory.
+
+If you simply run javac, the compiler will throw an error.
+
+------------------------------------------------------------------------------------------------------------------------------------
+| Instead, you can either run javac from this directory, by doing "javac ExerciseFolder/Exercise.java",                            |
+| Or                                                                                                                               |
+| you can also cd into the exercise directory and do javac -cp .:.. Exercise.java (on linux) as instructed in the book.            |
+------------------------------------------------------------------------------------------------------------------------------------
+
+**java follows the same rules described for javac**
+
+
