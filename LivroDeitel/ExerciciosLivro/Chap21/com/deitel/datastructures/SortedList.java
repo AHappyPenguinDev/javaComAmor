@@ -99,4 +99,15 @@ public class SortedList<E extends Number> {
     System.out.println("]");
   }
 
+  public void merge(SortedList<E> list2) {
+    if (isEmpty()) {
+      firstNode = lastNode = list2.firstNode.nextNode;
+    } else { // lastNode's nextNode refers to new node
+      while (list2.firstNode != null) {
+        list2.firstNode = list2.firstNode.nextNode;
+        lastNode = lastNode.nextNode = list2.firstNode;
+      }
+    }
+  }
+
 }

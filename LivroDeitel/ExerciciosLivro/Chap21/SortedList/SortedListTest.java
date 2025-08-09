@@ -1,6 +1,8 @@
 import java.security.SecureRandom;
 import java.util.Arrays;
 
+//Sorted list contains method insertSorted which just takes an Integer[], does a LOT of type conversions which I don't fully understand
+//
 import com.deitel.datastructures.SortedList;
 import com.deitel.datastructures.MergeSort;
 
