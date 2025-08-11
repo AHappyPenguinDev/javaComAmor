@@ -1,4 +1,4 @@
-# 🐧 Java How to Program, 11/e (Early Objects) 🐧
+# 🐧 Java How to Program, 11/e (Early Objects) -- WIP 🐧
 
 Solutions to some of the exercises from the book Java How to Program, 11/e (Late objects)
 
