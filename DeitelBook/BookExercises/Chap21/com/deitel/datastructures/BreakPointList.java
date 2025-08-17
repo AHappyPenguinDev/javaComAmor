@@ -107,7 +107,7 @@ public class BreakPointList<E extends Number> {
     while (nextCurrent != null) {
       // if current is greater than previous, then it's ascending
       if ((Integer) current.data <= (Integer) nextCurrent.data) {
-        System.out.printf("Current (%d) is less than Next Current (%d)%n", current.data, nextCurrent.data);
+        System.out.printf("Current (%d) is less than next (%d)%n", current.data, nextCurrent.data);
         builder.append(current.data + ", ");
       }
 
@@ -119,7 +119,7 @@ public class BreakPointList<E extends Number> {
       ListNode<E> temp = current.nextNode;
       current = nextCurrent;
       nextCurrent = temp.nextNode;
-      System.out.printf("Assigning %d to current and %d to next current%n", nextCurrent.data, temp.data);
+      System.out.printf("Assigning %d to current and %d to next %n", nextCurrent.data, temp.data);
     }
 
     System.out.printf("List until breaking point: [%s] %n", builder.toString());
