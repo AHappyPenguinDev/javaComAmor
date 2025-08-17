@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polyline?>
+
+<Pane fx:id="drawingAreaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#drawingAreaMouseDragged" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PolylineAppController">
+   <children>
+      <Polyline fx:id="polyline" fill="CHARTREUSE" layoutX="302.0" layoutY="189.0" strokeType="INSIDE" visible="false" />
+   </children>
+</Pane>
