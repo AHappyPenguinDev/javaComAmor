@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UsingGradientsController">
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+   <left>
+      <VBox spacing="8.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="8.0" />
+         </BorderPane.margin>
+         <children>
+            <TitledPane text="Drawing Color">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="48.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="redTextField" maxWidth="58.0" GridPane.columnIndex="2" />
+                              <TextField fx:id="greenTextField" maxWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="blueTextField" maxWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label text="Green" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets right="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="46.0" text="Red">
+                                 <padding>
+                                    <Insets right="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="46.0" text="Blue" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets right="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="alphaTextField" maxWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label text="Alpha" GridPane.rowIndex="3" />
+                              <Slider fx:id="redSlider" max="255.0" GridPane.columnIndex="1" />
+                              <Slider fx:id="greenSlider" max="255.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Slider fx:id="blueSlider" max="255.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Slider fx:id="alphaSlider" max="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                        <RadioButton fx:id="linearGradientRadioButton" mnemonicParsing="false" onAction="#gradientRadioButtonSelected" selected="true" text="Linear gradient">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gradientToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radialGradientRadioButton" mnemonicParsing="false" onAction="#gradientRadioButtonSelected" text="Radial gradient" toggleGroup="$gradientToggleGroup" />
+                        <Rectangle fx:id="colorRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                     </children>
+                  </VBox>
+               </content>
+               <padding>
+                  <Insets top="131.0" />
+               </padding>
+            </TitledPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <Canvas fx:id="drawingCanvas" height="200.0" width="300.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
