@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Slider?>
@@ -29,6 +30,8 @@
                <content>
                   <VBox spacing="8.0">
                      <children>
+                        <Label text="Select Gradient Type" />
+                        <ChoiceBox fx:id="gradientChoiceBox" prefWidth="150.0" />
                         <GridPane>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" />
@@ -68,12 +71,12 @@
                               <Slider fx:id="alphaSlider" max="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
-                        <RadioButton fx:id="linearGradientRadioButton" mnemonicParsing="false" onAction="#gradientRadioButtonSelected" selected="true" text="Linear gradient">
+                        <RadioButton fx:id="colorOneRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" selected="true" text="Color 1">
                            <toggleGroup>
-                              <ToggleGroup fx:id="gradientToggleGroup" />
+                              <ToggleGroup fx:id="colorToggleGroup" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radialGradientRadioButton" mnemonicParsing="false" onAction="#gradientRadioButtonSelected" text="Radial gradient" toggleGroup="$gradientToggleGroup" />
+                        <RadioButton fx:id="colorTwoRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Color 2" toggleGroup="$colorToggleGroup" />
                         <Rectangle fx:id="colorRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                      </children>
                   </VBox>
