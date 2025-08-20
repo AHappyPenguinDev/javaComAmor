@@ -16,7 +16,7 @@ Solutions to some of the exercises from the book Java How to Program, 11/e (Late
 > - **Chapter 19** - [Searching, Sorting and Big O](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap19) (WIP)
 > - **Chapter 20** - [Generic Classes and Methods: A Deeper Look](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap20)
 > - **Chapter 21** - [Custom Generic Data Structures](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap21) (WIP)
-> - **Chapter 22** - JavaFX Graphics and Multimedia(WIP)
+> - **Chapter 22** - [JavaFX Graphics and Multimedia](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap23) (WIP)
 > - **Chapter 23** - [Concurrency](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap23) (WIP)
 > - **Chapter 24** - [Accessing Databases with JDBC](https://github.com/AHappyPenguinDev/javaComAmor/tree/main/LivroDeitel/ExerciciosLivro/Chap24) (WIP)
 > - **Chapter 25** - Introduction to JShell: Java 9’s REPL(WIP)
