@@ -15,7 +15,7 @@ public class SummarizingCharactersInFile {
     Pattern pattern = Pattern.compile("\\s+");
 
     // count occurrences of each word in a Stream<String> sorted by word
-    Map<Character, Long> letterCounts = Files.lines(Paths.get("SugarLyrics.txt")) // Get stream string
+    Map<Character, Long> letterCounts = Files.lines(Paths.get("Lyrics.txt")) // Get stream string
         .flatMap(line -> pattern.splitAsStream(line)) // Split line
         .filter(word -> !word.isEmpty()) // Filter out empty lines
         .collect(Collectors.groupingBy(string -> string.charAt(0), // Assign first index of word as map key

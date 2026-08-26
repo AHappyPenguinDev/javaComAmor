@@ -1,0 +1,26 @@
+----------------------------------------------------------------
+Fri Aug 22 16:41:34 IST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0198-d271-3f71-00000db5c188 
+on database directory /home/hamstermech/javaComAmor/DeitelBook/SourceCode/ch24/addressbook_example/books with class loader sun.misc.Launcher$AppClassLoader@5e2de80c 
+Loaded from file:/usr/lib/jvm/java-8-openjdk/db/lib/derby.jar
+java.vendor=Arch Linux
+java.runtime.version=1.8.0_462-b08
+user.dir=/home/hamstermech/javaComAmor/DeitelBook/SourceCode/ch24/addressbook_example
+os.name=Linux
+os.arch=amd64
+os.version=6.16.1-arch1-1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Aug 22 16:42:21 IST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 0ddd00a9-0198-d271-3f71-00000db5c188 
+on database directory /home/hamstermech/javaComAmor/DeitelBook/SourceCode/ch24/addressbook_example/addressbook with class loader sun.misc.Launcher$AppClassLoader@5e2de80c 
+Loaded from file:/usr/lib/jvm/java-8-openjdk/db/lib/derby.jar
+java.vendor=Arch Linux
+java.runtime.version=1.8.0_462-b08
+user.dir=/home/hamstermech/javaComAmor/DeitelBook/SourceCode/ch24/addressbook_example
+os.name=Linux
+os.arch=amd64
+os.version=6.16.1-arch1-1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Aug 22 17:00:49 IST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0198-d282-e2a9-000002c7d290 
+on database directory /home/hamstermech/javaComAmor/DeitelBook/SourceCode/ch24/books_examples/books with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5305068a 
+Loaded from file:/usr/lib/jvm/java-8-openjdk/db/lib/derby.jar
+java.vendor=Arch Linux
+java.runtime.version=24.0.2
+user.dir=/home/hamstermech/javaComAmor/DeitelBook/SourceCode/ch24/books_examples
+os.name=Linux
+os.arch=amd64
+os.version=6.16.1-arch1-1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
